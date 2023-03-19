@@ -27,6 +27,7 @@ class Client(commands.Bot):
 
 
     async def on_ready(self):
+        await bot.change_presence(activity=discord.Game(name="Raion's Shop"))
         print(f"Bot is online")
 
 
@@ -38,3 +39,4 @@ if __name__ == "__main__":
 
     bot = Client(command_prefix="$", application_id=1074229915584565338, exts=initial_extensions)
     bot.run(os.getenv("TOKEN"))
+    

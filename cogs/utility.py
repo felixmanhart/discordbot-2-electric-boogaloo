@@ -40,6 +40,21 @@ class Utility(commands.Cog):
         )
         await ctx.response.send_message(embed=successembed)
 
+    @app_commands.command(name="createmp", description="creates marketplace channel")
+    @app_commands.default_permissions(manage_channels=True)
+    async def createmp(self,ctx, name: str, category: str, member: discord.Member):
+        guild = ctx.guild
+        category = discord.utils.get(ctx.guild.categories, name=category)
+        channel = await guild.create_text_channel(name="🛒┇"+name, category=category)
+        await channel.set_permissions(
+            guild.get_member(discord.Member), send_messages=True, read_messages=True, mention_everyone=False
+        )
+        successembed= discord.Embed(
+            title="Success",
+            description="Your channel has been created.",
+            colour=discord.Colour.green()
+        )
+        await ctx.response.send_message(embed=successembed)
 
 
 

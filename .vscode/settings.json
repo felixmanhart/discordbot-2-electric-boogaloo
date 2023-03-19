@@ -4,6 +4,6 @@
         ".vscode": true,
         ".idea": true,
         "Pipfile.lock": true,
-        "entrypoint.sh": true
+        "entrypoint.sh": true,
     }
 }
